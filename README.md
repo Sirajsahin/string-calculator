@@ -22,3 +22,24 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.co
 1. Clone the repository:
    git clone https://github.com/yourusername/string-calculator.git
    cd string-calculator
+
+
+
+# Deploying a React Application to GitHub Pages
+
+## Steps to Deploy React Application to GitHub Pages
+
+npm install --save-dev gh-pages
+
+
+"homepage": "https://yourusername.github.io/your-repo-name",
+
+
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+
+
+npm run deploy
+
