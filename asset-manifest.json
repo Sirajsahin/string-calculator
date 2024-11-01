@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Sirajsahin/string-calculator/static/css/main.6861bbd8.css",
+    "main.js": "/Sirajsahin/string-calculator/static/js/main.bc5907f6.js",
+    "static/js/453.4b98457a.chunk.js": "/Sirajsahin/string-calculator/static/js/453.4b98457a.chunk.js",
+    "index.html": "/Sirajsahin/string-calculator/index.html",
+    "main.6861bbd8.css.map": "/Sirajsahin/string-calculator/static/css/main.6861bbd8.css.map",
+    "main.bc5907f6.js.map": "/Sirajsahin/string-calculator/static/js/main.bc5907f6.js.map",
+    "453.4b98457a.chunk.js.map": "/Sirajsahin/string-calculator/static/js/453.4b98457a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6861bbd8.css",
+    "static/js/main.bc5907f6.js"
+  ]
+}
