@@ -3,6 +3,16 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import StringCalculator from "./StringCalculator";
 
 describe("StringCalculator", () => {
+  // Mock the window.alert function before each test
+  beforeEach(() => {
+    window.alert = jest.fn();
+  });
+
+  // Clear mock calls after each test
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("should return 0 for an empty string", () => {
     render(<StringCalculator />);
     fireEvent.change(screen.getByPlaceholderText(/enter numbers/i), {
