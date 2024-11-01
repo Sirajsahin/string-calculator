@@ -6,24 +6,40 @@ const StringCalculator = () => {
   const [result, setResult] = useState(0);
 
   const add = (numbers) => {
+    // If the input is an empty string, return 0
     if (numbers === "") return 0;
-    const delimiter = numbers.startsWith("//") ? numbers[2] : ",";
+
+    let delimiter = ",";
+    // Check for custom delimiter at the beginning
+    if (numbers.startsWith("//")) {
+      const newlineIndex = numbers.indexOf("\n");
+      delimiter = numbers.substring(2, newlineIndex); // Get custom delimiter
+      numbers = numbers.substring(newlineIndex + 1); // Get the numbers part
+    }
+
+    // Split the numbers using the specified delimiter (comma and new lines)
     const nums = numbers.split(new RegExp(`[${delimiter}\\n]`));
     const negativeNumbers = nums.filter((num) => parseInt(num) < 0);
 
+    // If there are negative numbers, throw an error
     if (negativeNumbers.length > 0) {
       throw new Error(
         `negative numbers not allowed: ${negativeNumbers.join(", ")}`
       );
     }
 
-    return nums.reduce((sum, num) => sum + parseInt(num), 0);
+    // Calculate the sum, filtering out any empty strings
+    return nums.reduce((sum, num) => {
+      const parsedNum = parseInt(num);
+      return sum + (isNaN(parsedNum) ? 0 : parsedNum); // Handle non-numeric strings
+    }, 0);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
       setResult(add(input));
+      setInput(""); // Clear the input after calculation
     } catch (error) {
       alert(error.message);
     }
